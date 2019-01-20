@@ -17,11 +17,6 @@ describe('App component', () => {
     expect(wrapper.find('Item').exists()).toBeTruthy();
   });
 
-  it('render a child Cart component', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find('Cart').exists()).toBeTruthy();
-  });
-
   it('render a child Vouchers component', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find('Vouchers').exists()).toBeTruthy();
