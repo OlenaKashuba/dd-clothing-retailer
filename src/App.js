@@ -15,7 +15,13 @@ class App extends Component {
       cart: [],
       validVouchers: [],
       numOfItems: 0,
-      totalPrice: 0
+      discount: 0,
+      totalPrice: 0,
+      toPay: 0,
+      inputValue: '',
+      voucherApplied: false,
+      categoryF: false,
+      voucherError: null
     };
   };
 
@@ -45,7 +51,9 @@ class App extends Component {
     this.setState({
       cart: cart,
       numOfItems: numOfItems,
-      totalPrice: totalPrice
+      voucherError: false,
+      totalPrice: totalPrice,
+      toPay: totalPrice
     });
   }
 
@@ -59,12 +67,63 @@ class App extends Component {
     this.setState({
       cart: cart,
       numOfItems: numOfItems,
-      totalPrice: totalPrice
+      totalPrice: totalPrice,
+      discount: 0,
+      voucherApplied: false,//annulate discount
+      voucherError: null,//annulate discount
+      categoryF: false,//annulate discount
+      totalPrice: totalPrice,
+      toPay: totalPrice//annulate discount
     });
   }
 
+  //HANDLE A DISCOUNT INPUT
+  inputChangeHandler = (e) => {
+    this.setState({
+      inputValue: e.target.value
+    })
+  }
+
+  //APPLY A VALID VOUCHER
+  applyDiscountHandler = (e) => {
+    e.preventDefault();
+    let { discount, totalPrice, inputValue, voucherApplied, voucherError, cart, categoryF, toPay } = this.state;
+    cart.map(el => {
+      if (el.category.includes('Footwear') === true) {
+        categoryF = true;
+      }
+    })
+    if (inputValue === 'DISCOUNT5' && totalPrice > 10 && voucherApplied === false) {
+      discount = 5;
+      voucherApplied = true; //to prevent applying more than 1 voucher
+      voucherError = false;
+      toPay = totalPrice - discount;
+    } else if (inputValue === 'DISCOUNT10' && totalPrice >= 50 && voucherApplied === false) {
+      discount = 10;
+      voucherApplied = true; //to prevent applying more than 1 voucher
+      voucherError = false;
+      toPay = totalPrice - discount;
+    } else if (inputValue === 'FOOTWEAR15' && totalPrice >= 75 && categoryF === true && voucherApplied === false) {
+      discount = 15;
+      voucherApplied = true; //to prevent applying more than 1 voucher
+      voucherError = false;
+      toPay = totalPrice - discount;
+    } else {
+      voucherError = true;
+    }
+    this.setState({
+      discount: discount,
+      inputValue: '',
+      voucherApplied: voucherApplied,
+      voucherError: voucherError,
+      categoryF: categoryF,
+      toPay: toPay
+    })
+  }
+
   render() {
-    const { data, validVouchers, cart, numOfItems, totalPrice } = this.state;
+    const { data, validVouchers, cart, numOfItems, totalPrice,
+      inputValue, voucherError, toPay, discount } = this.state;
 
     const itemsToRender = data.map((item, key) => {
       return <Item
@@ -89,7 +148,23 @@ class App extends Component {
           <section className='cart'>
             <h2> Shopping cart (Items: {numOfItems}) </h2>
             {cartItemsToRender}
+            {/* DISCOUNT BLOCK */}
+            <section className='discount-block'>
+              <form onSubmit={this.applyDiscountHandler}>
+                <label htmlFor='discount' className='discount-label'>Have a discount?</label>
+                <input
+                  id='discount'
+                  type='text'
+                  value={inputValue}
+                  onChange={this.inputChangeHandler}
+                  placeholder='Enter discount code' />
+                <button className='apply-btn'> Apply </button>
+                <p className={voucherError ? 'error' : 'hidden'}> Sorry, invalid voucher</p>
+              </form>
+            </section>
+            <p> Discount: £{discount}</p>
             <p> Total: £{totalPrice} </p>
+            <h4> TO PAY: £{toPay}</h4>
           </section>
           {/* SHOP BLOCK */}
           {itemsToRender}
