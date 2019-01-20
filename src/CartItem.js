@@ -2,6 +2,7 @@ import React from 'react';
 
 const CartItem = (props) => {
   const { name, colour, category, price, img, pic } = props.item;
+  const deleteFromCart = props.deleteFromCart;
   return (
     <article className='cart-item'>
       <img
@@ -15,7 +16,10 @@ const CartItem = (props) => {
       <p className='cart-item-colour'> Colour: {colour}</p>
       <p className='cart-item-category'> {category} </p>
       <p className='cart-item-price'> £{price} </p>
-      <button className='delete-btn'> Delete </button>
+      <button
+        onClick={deleteFromCart}
+        className='delete-btn'
+      > Delete </button>
     </article >
   )
 }

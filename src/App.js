@@ -36,6 +36,16 @@ class App extends Component {
     });
   }
 
+  //DELETE AN ITEM FROM CART
+  deleteFromCartHandler = (e, key) => {
+    e.preventDefault();
+    const cart = this.state.cart;
+    cart.splice(key, 1); //delete item from cart
+    this.setState({
+      cart: cart
+    });
+  }
+
   render() {
     const { data, validVouchers, cart } = this.state;
 
@@ -51,6 +61,7 @@ class App extends Component {
       return <CartItem
         item={item}
         key={key}
+        deleteFromCart={(e) => this.deleteFromCartHandler(e, key)}
       />
     })
 
@@ -62,7 +73,9 @@ class App extends Component {
             <h2> Shopping cart </h2>
             {cartItemsToRender}
           </section>
+          {/* SHOP BLOCK */}
           {itemsToRender}
+          {/* VOUCHERS BLOCK */}
           <Vouchers validVouchers={validVouchers} />
         </main>
       </div>
