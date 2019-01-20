@@ -170,7 +170,9 @@ class App extends Component {
             className='cart-header'
           > My Shopping Cart (Items: {numOfItems}) </h2>
           <div className={cartCollapsed ? 'collapsed' : 'block'}>
-            {cartItemsToRender}
+            <section className='cart-items'>
+              {cartItemsToRender}
+            </section>
             {/* DISCOUNT BLOCK */}
             <section className='discount-block'>
               <form onSubmit={this.applyDiscountHandler}>
@@ -186,9 +188,9 @@ class App extends Component {
               </form>
             </section>
             <section className='price-block'>
-              <p> Discount: £{discount}</p>
-              <p> Total: £{totalPrice} </p>
-              <h4> TO PAY: £{toPay}</h4>
+              <p className='discount'> Discount: £{discount}</p>
+              <p className='total-price'> Total: £{totalPrice} </p>
+              <h4 className='to-pay'> TO PAY: £{toPay}</h4>
               <button
                 name='cartCollapsed'
                 onClick={this.closeBlockHandler}
