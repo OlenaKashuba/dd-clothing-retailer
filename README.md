@@ -10,9 +10,10 @@ The simple responsive clothing retailer app, which displays the items cards, sho
 - get alert when invalid voucher is applied
 - responsive for mobile, tablet and desktop
 - main user stories are tested with Cypress
+- continuous integration server using Travis 
 
 ### Tech Stack
-HTML5, CSS3, React, Jest, Enzyme, Cypress, Heroku deployment
+HTML5, CSS3, React, Jest, Enzyme, Cypress, Travis, Heroku deployment
 
 ## How to run a project
 1. Fork the repo and set it up on your local machine
