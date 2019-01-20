@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { shallow } from 'enzyme';
+import shopData from './shop-data.json';
+import vouchersData from './vouchers-data.json';
 
 describe('App component', () => {
   it('renders without crashing', () => {
@@ -23,5 +25,9 @@ describe('App component', () => {
   it('render a child Vouchers component', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find("Vouchers").exists()).toBeTruthy();
+  });
+
+  it("should render the same amount of items compared to json file", () => {
+    expect(shallow(<App />).find("Item").length).toEqual(shopData.items.length);
   });
 });
