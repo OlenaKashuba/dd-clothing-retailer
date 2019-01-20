@@ -166,7 +166,8 @@ class App extends Component {
         <section className='cart-block'>
           <h2
             onClick={this.openBlockHandler}
-            id='cartCollapsed' className='cart-header'
+            id='cartCollapsed'
+            className='cart-header'
           > My Shopping Cart (Items: {numOfItems}) </h2>
           <div className={cartCollapsed ? 'collapsed' : 'block'}>
             {cartItemsToRender}

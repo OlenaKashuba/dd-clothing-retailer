@@ -62,14 +62,24 @@
   font-size: 0.7rem;
 }
 
-.add-btn {
+.add-btn,
+.disabled-btn {
   width: 100%;
   font-size: 0.9rem;
+  border-radius: 0;
 }
 
 .add-btn:hover,
 .add-btn:focus {
   background-color: rgb(166, 166, 252);
+}
+
+.add-btn:active {
+  color: grey;
+}
+
+.disabled-btn {
+  color: grey;
 }
 
 /* CART BLOCK */
@@ -83,6 +93,15 @@
   font-size: 1rem;
   text-align: right;
   background: rgb(243, 241, 241);
+}
+
+.cart-header:hover,
+.cart-header:focus {
+  text-decoration: underline;
+}
+
+.cart-header:active {
+  color: rgb(88, 86, 86);
 }
 
 .cart-item {
@@ -137,6 +156,18 @@
   position: absolute;
   top: 0.4rem;
   left: 0.4rem;
+  border: none;
+  font-weight: bold;
+  background-color: inherit;
+}
+
+.close-cart-btn:hover,
+.close-cart-btn:focus {
+  color: rgb(73, 73, 122);
+}
+
+.close-cart-btn:active {
+  color: grey;
 }
 
 /* DISCOUNT BLOCK */
@@ -157,6 +188,7 @@
 
 /* VOUCHERS BLOCK */
 .vouchers-block {
+  position: relative;
   padding: 0.5rem;
   font-size: 0.9rem;
 }
@@ -165,6 +197,15 @@
   margin: 0 0 0.5rem 0;
   padding: 0;
   text-align: left;
+}
+
+.vouchers-block-header:hover,
+.vouchers-block-header:focus {
+  text-decoration: underline;
+}
+
+.vouchers-block-header:active {
+  text-decoration: underline;
 }
 
 .vouchers-block-intro {
@@ -193,6 +234,25 @@
   font-size: 0.9rem;
   text-align: right;
 }
+
+.close-vouchers-btn {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  border: none;
+  font-weight: bold;
+
+}
+
+.close-vouchers-btn:hover,
+.close-vouchers-btn:focus {
+  text-decoration: underline;
+}
+
+.close-vouchers-btn:active {
+  color: grey;
+}
+
 
 /* FUNCTIONAL */
 .error {
