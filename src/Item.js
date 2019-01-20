@@ -20,6 +20,7 @@ const Item = (props) => {
       <button
         onClick={addToCart}
         className='add-btn'
+        disabled={quantity === 0 ? true : false} //disable button if item is out of stock
       > Add to cart </button>
     </article >
   )
