@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Item from './Item';
-import Cart from './Cart';
+import CartItem from './CartItem';
 import Vouchers from './Vouchers';
 import shopData from './shop-data.json';
 import vouchersData from './vouchers-data.json';
@@ -38,6 +38,7 @@ class App extends Component {
 
   render() {
     const { data, validVouchers, cart } = this.state;
+
     const itemsToRender = data.map((item, key) => {
       return <Item
         item={item}
@@ -45,12 +46,23 @@ class App extends Component {
         addToCart={(e) => this.addToCartHandler(e, item.id)}
       />
     });
+
+    const cartItemsToRender = cart.map((item, key) => {
+      return <CartItem
+        item={item}
+        key={key}
+      />
+    })
+
     return (
       <div className="App">
         <main>
-          <p> This is app</p>
+          {/* CART BLOCK */}
+          <section className='cart'>
+            <h2> Shopping cart </h2>
+            {cartItemsToRender}
+          </section>
           {itemsToRender}
-          <Cart />
           <Vouchers validVouchers={validVouchers} />
         </main>
       </div>
