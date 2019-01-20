@@ -76,13 +76,97 @@
 
 /* CART BLOCK */
 
+.cart-block {
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  padding-bottom: 0.8rem;
+}
+
+.cart-header {
+  margin: 0;
+  padding: 0.4rem;
+  font-size: 1rem;
+  text-align: right;
+}
+
+.cart-item:first-child{
+  border-top: 1px solid grey;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  align-items: center;
+  padding: 0.5rem;
+}
+.content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-item-pic {
+  object-fit: cover;
+  background: grey;
+}
+
+.cart-item-name {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.cart-item-colour {
+  margin: 0.2rem 0;
+  font-size: 0.8rem
+}
+
+.cart-item-category {
+  margin: 0.2rem 0;
+  font-size: 0.7rem
+}
+
+.price-wrap {
+  display: flex;
+  align-items: flex-end;
+}
+
+.cart-item-price {
+  margin: 0 0.5rem 0 0;
+}
+
+.delete-btn {
+  align-self: center;
+}
+
+/* DISCOUNT BLOCK */
+.discount-block {
+  margin: 1rem 0 0 0;
+}
+
+.discount-label {
+  font-size: 0.8rem;
+}
+
+
 /* VOUCHERS BLOCK */
 .vouchers-block {
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 0.9rem;
 }
 
-.vouchers-list {
+.vouchers-block-header {
+  margin: 0 0 0.5rem 0;
+  padding: 0;
+  text-align: left;
+}
+
+.vouchers-block-intro {
+  text-align: left;
+}
+
+.vouchers-block-list {
   padding: 0;
 }
 

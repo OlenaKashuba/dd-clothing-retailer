@@ -16,8 +16,8 @@ const Vouchers = (props) => {
         className='vouchers-block-header'
       > Vouchers </h3>
       <div className={vouchersCollapsed ? 'collapsed' : 'block'}>
-        <p className='vouchers-intro'> Shop more, get more! Check out our discounts:</p>
-        <ul className='vouchers-list'>
+        <p className='vouchers-block-intro'> Shop more, get more! Check out our discounts:</p>
+        <ul className='vouchers-block-list'>
           {vouchersToRender}
         </ul>
         <button

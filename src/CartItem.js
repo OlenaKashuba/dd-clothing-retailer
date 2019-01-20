@@ -12,14 +12,18 @@ const CartItem = (props) => {
         width='70'
         height='100'
       />
-      <p className='cart-item-name'>{name}</p>
-      <p className='cart-item-colour'> Colour: {colour}</p>
-      <p className='cart-item-category'> {category} </p>
-      <p className='cart-item-price'> £{price} </p>
-      <button
-        onClick={deleteFromCart}
-        className='delete-btn'
-      > Delete </button>
+      <div className='content-wrap'>
+        <p className='cart-item-name'>{name}</p>
+        <p className='cart-item-colour'> Colour: {colour}</p>
+        <p className='cart-item-category'> {category} </p>
+      </div>
+      <div className='price-wrap'>
+        <p className='cart-item-price'> £{price} </p>
+        <button
+          onClick={deleteFromCart}
+          className='delete-btn'
+        > Delete </button>
+      </div>
     </article >
   )
 }
