@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       data: [],
       cart: [],
-      validVouchers: []
+      validVouchers: [],
+      numOfItems: 0
     };
   };
 
@@ -31,8 +32,10 @@ class App extends Component {
     const cart = this.state.cart;
     const cartItem = this.state.data.filter(item => item.id === id);//get item by id
     cart.push(cartItem[0]); //save item to the cart
+    const numOfItems = this.state.numOfItems + 1;//get number of items in the cart
     this.setState({
       cart: cart,
+      numOfItems: numOfItems
     });
   }
 
@@ -41,13 +44,15 @@ class App extends Component {
     e.preventDefault();
     const cart = this.state.cart;
     cart.splice(key, 1); //delete item from cart
+    const numOfItems = this.state.numOfItems - 1;//get number of items in the cart
     this.setState({
-      cart: cart
+      cart: cart,
+      numOfItems: numOfItems
     });
   }
 
   render() {
-    const { data, validVouchers, cart } = this.state;
+    const { data, validVouchers, cart, numOfItems } = this.state;
 
     const itemsToRender = data.map((item, key) => {
       return <Item
@@ -70,7 +75,7 @@ class App extends Component {
         <main>
           {/* CART BLOCK */}
           <section className='cart'>
-            <h2> Shopping cart </h2>
+            <h2> Shopping cart (Items: {numOfItems}) </h2>
             {cartItemsToRender}
           </section>
           {/* SHOP BLOCK */}
