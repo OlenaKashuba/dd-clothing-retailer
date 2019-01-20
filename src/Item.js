@@ -15,7 +15,7 @@ const Item = (props) => {
         />
         <h3 className='item-header'> {name} </h3>
       </div>
-      <div className='content-wrapper'>
+      <div className='item-content-wrap'>
         <p className='item-colour'> Colour: {colour}</p>
         <p className='item-price'> £{price} </p>
         <p className='item-stock'> {quantity > 0 ? 'In Stock' : 'Out of Stock'} </p>

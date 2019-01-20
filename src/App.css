@@ -74,19 +74,37 @@
   background-color: rgb(166, 166, 252);
 }
 
-
-
-/* .item-top-wrap {
-
-} */
-
 /* CART BLOCK */
 
 /* VOUCHERS BLOCK */
+.vouchers-block {
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.vouchers-list {
+  padding: 0;
+}
+
+.voucher {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  font-size: 0.8rem;
+}
+
+.voucher-description {
+  width: 48%;
+}
+
+.voucher-code {
+  width: 48%;
+  font-size: 0.9rem;
+  text-align: right;
+}
 
 /* FUNCTIONAL */
-
-
 .error {
   display: block;
   color: red;
