@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import Item from './Item';
+import Cart from './Cart';
+import Vouchers from './Vouchers';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <main>
-          <h2> This is app</h2>
+          <p> This is app</p>
+          <Item />
+          <Cart />
+          <Vouchers />
         </main>
       </div>
     );
