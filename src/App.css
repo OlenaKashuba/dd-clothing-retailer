@@ -51,6 +51,11 @@
   font-size: 1rem;
 }
 
+.item-old-price {
+  color: rgb(155, 37, 37);
+  text-decoration: line-through;
+}
+
 .item-stock {
   margin: 0 0 0.3rem 0;
   padding: 0;
@@ -152,6 +157,15 @@
   align-self: center;
 }
 
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: rgb(223, 128, 128);
+}
+
+.delete-btn:active {
+  color: grey;
+}
+
 .close-cart-btn {
   position: absolute;
   top: 0.4rem;
@@ -163,7 +177,7 @@
 
 .close-cart-btn:hover,
 .close-cart-btn:focus {
-  color: rgb(73, 73, 122);
+  text-decoration: underline;
 }
 
 .close-cart-btn:active {
@@ -185,6 +199,42 @@
   border-bottom: 1px solid grey;
 }
 
+.back-btn,
+.checkout-btn {
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  border-radius: 0;
+}
+
+.back-btn {
+  margin-right: 0.5rem;
+}
+
+.back-btn:hover,
+.back-btn:focus,
+.apply-btn:hover,
+.apply-btn:focus{
+background-color: rgb(166, 166, 252);
+}
+
+.back-btn:active,
+.apply-btn:active {
+  color: grey;
+}
+
+.checkout-btn {
+  background-color: rgb(168, 204, 168);
+}
+
+.checkout-btn:hover,
+.checkout-btn:focus {
+  color: #fff;
+}
+
+.checkout-btn:active{
+  background-color:  rgb(56, 70, 56);
+  color: grey;
+}
 
 /* VOUCHERS BLOCK */
 .vouchers-block {

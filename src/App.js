@@ -193,7 +193,7 @@ class App extends Component {
                 name='cartCollapsed'
                 onClick={this.closeBlockHandler}
                 className='back-btn'> Back to shopping</button>
-              <button> Checkout </button>
+              <button className='checkout-btn'> Checkout </button>
               <button
                 name='cartCollapsed'
                 className='close-cart-btn'
