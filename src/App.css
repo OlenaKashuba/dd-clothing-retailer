@@ -277,6 +277,7 @@ background-color: rgb(166, 166, 252);
 .voucher-description {
   width: 48%;
   text-align: left;
+  font-size: 0.9rem;
 }
 
 .voucher-code {
