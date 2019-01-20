@@ -184,11 +184,13 @@ class App extends Component {
                 <p className={voucherError ? 'error' : 'hidden'}> Sorry, invalid voucher</p>
               </form>
             </section>
-            <p> Discount: £{discount}</p>
-            <p> Total: £{totalPrice} </p>
-            <h4> TO PAY: £{toPay}</h4>
-            <button className='cartCollapsed' onClick={this.closeBlockHandler}> Back to shopping</button>
-            <button> Checkout </button>
+            <section className='price-block'>
+              <p> Discount: £{discount}</p>
+              <p> Total: £{totalPrice} </p>
+              <h4> TO PAY: £{toPay}</h4>
+              <button className='cartCollapsed' onClick={this.closeBlockHandler}> Back to shopping</button>
+              <button> Checkout </button>
+            </section>
           </div>
         </section>
         {/* VOUCHERS BLOCK */}
