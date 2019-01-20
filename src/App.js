@@ -25,12 +25,24 @@ class App extends Component {
     });
   };
 
+  //ADD AN ITEM TO THE CART
+  addToCartHandler = (e, id) => {
+    e.preventDefault();
+    const cart = this.state.cart;
+    const cartItem = this.state.data.filter(item => item.id === id);//get item by id
+    cart.push(cartItem[0]); //save item to the cart
+    this.setState({
+      cart: cart,
+    });
+  }
+
   render() {
-    const { data, validVouchers } = this.state;
+    const { data, validVouchers, cart } = this.state;
     const itemsToRender = data.map((item, key) => {
       return <Item
         item={item}
         key={key}
+        addToCart={(e) => this.addToCartHandler(e, item.id)}
       />
     });
     return (

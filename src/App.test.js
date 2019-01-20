@@ -28,6 +28,7 @@ describe('App component', () => {
   });
 
   it('should render the same amount of items compared to json file', () => {
-    expect(shallow(<App />).find('Item').length).toEqual(shopData.items.length);
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Item').length).toEqual(shopData.items.length);
   });
 });

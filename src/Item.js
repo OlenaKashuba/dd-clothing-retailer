@@ -2,6 +2,7 @@ import React from 'react';
 
 const Item = (props) => {
   const { name, colour, category, price, quantity, pic } = props.item;
+  const addToCart = props.addToCart;
   return (
     <article className='item'>
       <img
@@ -17,6 +18,8 @@ const Item = (props) => {
       <p className='item-stock'> {quantity > 0 ? 'In Stock' : 'Out of Stock'} </p>
       <p className='item-category'> {category} </p>
       <button
+        onClick={addToCart}
+        className='add-btn'
       > Add to cart </button>
     </article >
   )
