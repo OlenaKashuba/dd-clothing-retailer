@@ -188,8 +188,15 @@ class App extends Component {
               <p> Discount: £{discount}</p>
               <p> Total: £{totalPrice} </p>
               <h4> TO PAY: £{toPay}</h4>
-              <button className='cartCollapsed' onClick={this.closeBlockHandler}> Back to shopping</button>
+              <button
+                name='cartCollapsed'
+                onClick={this.closeBlockHandler}
+                className='back-btn'> Back to shopping</button>
               <button> Checkout </button>
+              <button
+                name='cartCollapsed'
+                className='close-cart-btn'
+                onClick={this.closeBlockHandler}> Close </button>
             </section>
           </div>
         </section>

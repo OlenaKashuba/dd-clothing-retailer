@@ -22,7 +22,8 @@ const Vouchers = (props) => {
         </ul>
         <button
           onClick={props.closeBlock}
-          className='vouchersCollapsed'
+          name='vouchersCollapsed'
+          className='close-vouchers-btn'
         >Close block </button>
       </div>
     </section >

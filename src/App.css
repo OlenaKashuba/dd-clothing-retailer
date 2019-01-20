@@ -74,6 +74,9 @@
 }
 
 /* CART BLOCK */
+.cart-block {
+  position: relative;
+}
 
 .cart-header {
   margin: 0;
@@ -129,6 +132,12 @@
 
 .delete-btn {
   align-self: center;
+}
+
+.close-cart-btn {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
 }
 
 /* DISCOUNT BLOCK */
@@ -250,8 +259,10 @@
   }
 
   .cart-item-name {
-    width: 60%;
+    width: 50%;
     text-align: left;
    }
 }
+
+
 
