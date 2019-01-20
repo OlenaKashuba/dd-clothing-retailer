@@ -1,6 +1,91 @@
-.App {
+.body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  min-width: 320px;
   text-align: center;
 }
+
+
+/* SHOP BLOCK */
+
+.shop-block {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 48%;
+  margin: 0 0 1rem 0;
+  border: 1px solid #fff;
+  font-size: 0.8rem;
+}
+
+.item:hover {
+  border: 1px solid rgb(216, 210, 210);
+}
+
+.item-header {
+  margin: 0.2rem 0.1rem 0.6rem 0.1rem;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.item-pic {
+  width: 100%;
+  object-fit: cover;
+  background: grey;
+}
+
+.item-colour {
+  margin: 0 0 0.4rem 0;
+  padding: 0;
+  font-size: 0.7rem;
+}
+
+.item-price {
+  margin: 0 0 0.4rem 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.item-stock {
+  margin: 0 0 0.3rem 0;
+  padding: 0;
+}
+
+.item-category {
+  margin: 0 0 0.4rem 0;
+  padding: 0;
+  font-size: 0.7rem;
+}
+
+.add-btn {
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.add-btn:hover,
+.add-btn:focus {
+  background-color: rgb(166, 166, 252);
+}
+
+
+
+/* .item-top-wrap {
+
+} */
+
+/* CART BLOCK */
+
+/* VOUCHERS BLOCK */
+
+/* FUNCTIONAL */
+
 
 .error {
   display: block;

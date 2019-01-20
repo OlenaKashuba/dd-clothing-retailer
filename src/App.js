@@ -161,50 +161,48 @@ class App extends Component {
     })
 
     return (
-      <div className="App">
-        <main>
-          {/* CART BLOCK */}
-          <section className='cart-block'>
-            <h2
-              onClick={this.openBlockHandler}
-              id='cartCollapsed' className='cart-header'
-            > My Shopping Cart (Items: {numOfItems}) </h2>
-            <div className={cartCollapsed ? 'collapsed' : 'block'}>
-              {cartItemsToRender}
-              {/* DISCOUNT BLOCK */}
-              <section className='discount-block'>
-                <form onSubmit={this.applyDiscountHandler}>
-                  <label htmlFor='discount' className='discount-label'>Have a discount?</label>
-                  <input
-                    id='discount'
-                    type='text'
-                    value={inputValue}
-                    onChange={this.inputChangeHandler}
-                    placeholder='Enter discount code' />
-                  <button className='apply-btn'> Apply </button>
-                  <p className={voucherError ? 'error' : 'hidden'}> Sorry, invalid voucher</p>
-                </form>
-              </section>
-              <p> Discount: £{discount}</p>
-              <p> Total: £{totalPrice} </p>
-              <h4> TO PAY: £{toPay}</h4>
-              <button className='cartCollapsed' onClick={this.closeBlockHandler}> Back to shopping</button>
-              <button> Checkout </button>
-            </div>
-          </section>
-          {/* VOUCHERS BLOCK */}
-          <Vouchers
-            validVouchers={validVouchers}
-            vouchersCollapsed={vouchersCollapsed}
-            openBlock={(e, id) => this.openBlockHandler(e, id)}
-            closeBlock={(e) => this.closeBlockHandler(e)}
-          />
-          {/* SHOP BLOCK */}
-          <section className='shop-block'>
-            {itemsToRender}
-          </section>
-        </main>
-      </div>
+      <main className='body'>
+        {/* CART BLOCK */}
+        <section className='cart-block'>
+          <h2
+            onClick={this.openBlockHandler}
+            id='cartCollapsed' className='cart-header'
+          > My Shopping Cart (Items: {numOfItems}) </h2>
+          <div className={cartCollapsed ? 'collapsed' : 'block'}>
+            {cartItemsToRender}
+            {/* DISCOUNT BLOCK */}
+            <section className='discount-block'>
+              <form onSubmit={this.applyDiscountHandler}>
+                <label htmlFor='discount' className='discount-label'>Have a discount?</label>
+                <input
+                  id='discount'
+                  type='text'
+                  value={inputValue}
+                  onChange={this.inputChangeHandler}
+                  placeholder='Enter discount code' />
+                <button className='apply-btn'> Apply </button>
+                <p className={voucherError ? 'error' : 'hidden'}> Sorry, invalid voucher</p>
+              </form>
+            </section>
+            <p> Discount: £{discount}</p>
+            <p> Total: £{totalPrice} </p>
+            <h4> TO PAY: £{toPay}</h4>
+            <button className='cartCollapsed' onClick={this.closeBlockHandler}> Back to shopping</button>
+            <button> Checkout </button>
+          </div>
+        </section>
+        {/* VOUCHERS BLOCK */}
+        <Vouchers
+          validVouchers={validVouchers}
+          vouchersCollapsed={vouchersCollapsed}
+          openBlock={(e, id) => this.openBlockHandler(e, id)}
+          closeBlock={(e) => this.closeBlockHandler(e)}
+        />
+        {/* SHOP BLOCK */}
+        <section className='shop-block'>
+          {itemsToRender}
+        </section>
+      </main>
     );
   }
 }
