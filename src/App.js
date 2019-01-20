@@ -26,7 +26,7 @@ class App extends Component {
   };
 
   render() {
-    const data = this.state.data;
+    const { data, validVouchers } = this.state;
     const itemsToRender = data.map((item, key) => {
       return <Item
         item={item}
@@ -39,7 +39,7 @@ class App extends Component {
           <p> This is app</p>
           {itemsToRender}
           <Cart />
-          <Vouchers />
+          <Vouchers validVouchers={validVouchers} />
         </main>
       </div>
     );
