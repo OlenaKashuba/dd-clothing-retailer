@@ -21,7 +21,9 @@ class App extends Component {
       inputValue: '',
       voucherApplied: false,
       categoryF: false,
-      voucherError: null
+      voucherError: null,
+      vouchersCollapsed: true,
+      cartCollapsed: true
     };
   };
 
@@ -121,9 +123,26 @@ class App extends Component {
     })
   }
 
+  //MANAGE OPENING THE COLLAPSED BLOCKS
+  openBlockHandler = (e) => {
+    e.preventDefault();
+    this.setState({
+      [e.target.id]: false
+    })
+  }
+
+  //MANAGE CLOSING THE BLOCKS ON BUTTON CLICK
+  closeBlockHandler = (e) => {
+    e.preventDefault();
+    const targetBlock = e.target.attributes[0].nodeValue;
+    this.setState({
+      [targetBlock]: true
+    })
+  }
+
   render() {
-    const { data, validVouchers, cart, numOfItems, totalPrice,
-      inputValue, voucherError, toPay, discount } = this.state;
+    const { data, validVouchers, cart, numOfItems, totalPrice, inputValue,
+      voucherError, toPay, discount, cartCollapsed, vouchersCollapsed } = this.state;
 
     const itemsToRender = data.map((item, key) => {
       return <Item
@@ -145,31 +164,45 @@ class App extends Component {
       <div className="App">
         <main>
           {/* CART BLOCK */}
-          <section className='cart'>
-            <h2> Shopping cart (Items: {numOfItems}) </h2>
-            {cartItemsToRender}
-            {/* DISCOUNT BLOCK */}
-            <section className='discount-block'>
-              <form onSubmit={this.applyDiscountHandler}>
-                <label htmlFor='discount' className='discount-label'>Have a discount?</label>
-                <input
-                  id='discount'
-                  type='text'
-                  value={inputValue}
-                  onChange={this.inputChangeHandler}
-                  placeholder='Enter discount code' />
-                <button className='apply-btn'> Apply </button>
-                <p className={voucherError ? 'error' : 'hidden'}> Sorry, invalid voucher</p>
-              </form>
-            </section>
-            <p> Discount: £{discount}</p>
-            <p> Total: £{totalPrice} </p>
-            <h4> TO PAY: £{toPay}</h4>
+          <section className='cart-block'>
+            <h2
+              onClick={this.openBlockHandler}
+              id='cartCollapsed' className='cart-header'
+            > My Shopping Cart (Items: {numOfItems}) </h2>
+            <div className={cartCollapsed ? 'collapsed' : 'block'}>
+              {cartItemsToRender}
+              {/* DISCOUNT BLOCK */}
+              <section className='discount-block'>
+                <form onSubmit={this.applyDiscountHandler}>
+                  <label htmlFor='discount' className='discount-label'>Have a discount?</label>
+                  <input
+                    id='discount'
+                    type='text'
+                    value={inputValue}
+                    onChange={this.inputChangeHandler}
+                    placeholder='Enter discount code' />
+                  <button className='apply-btn'> Apply </button>
+                  <p className={voucherError ? 'error' : 'hidden'}> Sorry, invalid voucher</p>
+                </form>
+              </section>
+              <p> Discount: £{discount}</p>
+              <p> Total: £{totalPrice} </p>
+              <h4> TO PAY: £{toPay}</h4>
+              <button className='cartCollapsed' onClick={this.closeBlockHandler}> Back to shopping</button>
+              <button> Checkout </button>
+            </div>
           </section>
-          {/* SHOP BLOCK */}
-          {itemsToRender}
           {/* VOUCHERS BLOCK */}
-          <Vouchers validVouchers={validVouchers} />
+          <Vouchers
+            validVouchers={validVouchers}
+            vouchersCollapsed={vouchersCollapsed}
+            openBlock={(e, id) => this.openBlockHandler(e, id)}
+            closeBlock={(e) => this.closeBlockHandler(e)}
+          />
+          {/* SHOP BLOCK */}
+          <section className='shop-block'>
+            {itemsToRender}
+          </section>
         </main>
       </div>
     );

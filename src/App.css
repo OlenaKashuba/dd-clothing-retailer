@@ -11,6 +11,7 @@
   display: block;
 }
 
-.hidden {
+.hidden,
+.collapsed {
   display: none;
 }
