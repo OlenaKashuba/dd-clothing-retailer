@@ -14,7 +14,8 @@ class App extends Component {
       data: [],
       cart: [],
       validVouchers: [],
-      numOfItems: 0
+      numOfItems: 0,
+      totalPrice: 0
     };
   };
 
@@ -26,6 +27,13 @@ class App extends Component {
     });
   };
 
+  //COUNT TOTAL PRICE OF ALL ITEMS IN THE CART
+  countTotal(cart, priceKey) {
+    return cart.reduce(function (r, a) {
+      return r + a[priceKey];
+    }, 0);
+  }
+
   //ADD AN ITEM TO THE CART
   addToCartHandler = (e, id) => {
     e.preventDefault();
@@ -33,9 +41,11 @@ class App extends Component {
     const cartItem = this.state.data.filter(item => item.id === id);//get item by id
     cart.push(cartItem[0]); //save item to the cart
     const numOfItems = this.state.numOfItems + 1;//get number of items in the cart
+    const totalPrice = this.countTotal(cart, 'price').toFixed(2); //count the price of items in the cart
     this.setState({
       cart: cart,
-      numOfItems: numOfItems
+      numOfItems: numOfItems,
+      totalPrice: totalPrice
     });
   }
 
@@ -45,14 +55,16 @@ class App extends Component {
     const cart = this.state.cart;
     cart.splice(key, 1); //delete item from cart
     const numOfItems = this.state.numOfItems - 1;//get number of items in the cart
+    const totalPrice = this.countTotal(cart, 'price').toFixed(2); //count the price of items in the cart
     this.setState({
       cart: cart,
-      numOfItems: numOfItems
+      numOfItems: numOfItems,
+      totalPrice: totalPrice
     });
   }
 
   render() {
-    const { data, validVouchers, cart, numOfItems } = this.state;
+    const { data, validVouchers, cart, numOfItems, totalPrice } = this.state;
 
     const itemsToRender = data.map((item, key) => {
       return <Item
@@ -77,6 +89,7 @@ class App extends Component {
           <section className='cart'>
             <h2> Shopping cart (Items: {numOfItems}) </h2>
             {cartItemsToRender}
+            <p> Total: £{totalPrice} </p>
           </section>
           {/* SHOP BLOCK */}
           {itemsToRender}
