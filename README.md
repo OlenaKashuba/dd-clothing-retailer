@@ -8,6 +8,7 @@ The simple responsive clothing retailer app, which displays the items cards, sho
 - check the total price of all items in the cart
 - apply a valid voucher to get a discount
 - get alert when invalid voucher is applied
+- more than 1 valid voucher cannot be applied
 - responsive for mobile, tablet and desktop
 - main user stories are tested with Cypress
 - continuous integration server using Travis 
